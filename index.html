@@ -3,126 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>safego.ro | Viitorul Asigurărilor</title>
+    <title>safego.ro | Explorează Viața</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { background-color: #050505; color: #e2e8f0; font-family: 'Inter', sans-serif; }
-        @keyframes beam {
-            0% { transform: translateX(-110%) skewX(-15deg); opacity: 0; }
-            50% { opacity: 0.6; }
-            100% { transform: translateX(250%) skewX(-15deg); opacity: 0; }
+        body { background-color: #1a1a1c; color: #ffffff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        /* Animație elemente care cad (ca în video) */
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
-        .btn-beam { position: relative; overflow: hidden; }
-        .btn-beam:hover::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 30%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
-            animation: beam 0.8s ease-out;
+        .falling-element {
+            position: fixed; top: -10%; z-index: 0; pointer-events: none;
+            animation: fall 8s linear infinite;
         }
-        @keyframes roll-custom {
-            0% { transform: translateY(0); opacity: 0; }
-            5% { opacity: 1; }
-            20% { transform: translateY(-120px); }
-            40% { transform: translateY(-240px); }
-            60% { transform: translateY(-360px); }
-            80% { transform: translateY(-480px); opacity: 1; }
-            100% { transform: translateY(-480px); opacity: 0; }
-        }
-        .roller-box { height: 120px; overflow: hidden; }
-        .roller-track { animation: roll-custom 10s infinite cubic-bezier(0.85, 0, 0.15, 1); }
-        .roller-item { height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px); }
+
+        .glass-card { background: rgba(40, 40, 43, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+        .btn-cyan { background-color: #00d2ff; color: #000; }
+        .btn-yellow { background-color: #facc15; color: #000; }
     </style>
 </head>
-<body>
+<body class="pb-20">
 
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-lg">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <img src="Logo safego.jpg" alt="safego.ro" class="h-12 w-12 rounded-lg object-cover shadow-lg shadow-cyan-500/20">
-                <span class="text-2xl font-black tracking-tighter text-white uppercase">safego.ro</span>
-            </div>
-            <div class="flex gap-4">
-                <button class="px-6 py-2 text-sm font-bold btn-beam hover:text-cyan-400 transition-colors">Acasa</button>
-                <button class="px-6 py-2 bg-cyan-500 text-black rounded-full text-sm font-black btn-beam shadow-lg shadow-cyan-500/30">Autentificare</button>
-            </div>
+    <div class="falling-element text-cyan-400" style="left: 10%; animation-delay: 0s;"><i data-lucide="shield" size="40"></i></div>
+    <div class="falling-element text-yellow-400" style="left: 30%; animation-delay: 2s;"><i data-lucide="coins" size="32"></i></div>
+    <div class="falling-element text-purple-400" style="left: 70%; animation-delay: 5s;"><i data-lucide="star" size="36"></i></div>
+    <div class="falling-element text-cyan-400" style="left: 85%; animation-delay: 3s;"><i data-lucide="plane" size="44"></i></div>
+
+    <nav class="flex items-center justify-between px-6 py-4 bg-[#1a1a1c] border-b border-white/5 sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <img src="Logo safego.jpg" alt="Logo" class="h-8 w-8 rounded-full border border-cyan-400">
+            <span class="font-bold text-cyan-400 tracking-tight">safego.ro</span>
         </div>
+        <div class="hidden md:flex gap-8 text-xs text-gray-400 uppercase tracking-widest">
+            <a href="#">Dark Mode</a>
+            <a href="#">Llesciics</a>
+        </div>
+        <div class="p-2 bg-gray-800 rounded-full"><i data-lucide="user" size="18"></i></div>
     </nav>
 
-    <section class="pt-48 pb-24 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-none">
-                PROTECȚIE <br> <span class="text-cyan-400">ULTRA RAPIDĂ</span>
-            </h1>
+    <main class="max-w-md mx-auto px-4 pt-10 relative z-10">
+        <h1 class="text-center text-lg font-medium mb-12">Explorează Viața. Noi te protejăm.</h1>
 
-            <div class="roller-box mb-16">
-                <div class="roller-track">
-                    <div class="roller-item text-pink-500">
-                        <i data-lucide="heart" size="60" stroke-width="2.5"></i>
-                        <span class="text-[10px] font-black uppercase mt-2 tracking-widest">Viață & Sănătate</span>
-                    </div>
-                    <div class="roller-item text-yellow-400">
-                        <i data-lucide="home" size="60" stroke-width="2.5"></i>
-                        <span class="text-[10px] font-black uppercase mt-2 tracking-widest">Locuință Smart</span>
-                    </div>
-                    <div class="roller-item text-purple-400">
-                        <i data-lucide="car" size="60" stroke-width="2.5"></i>
-                        <span class="text-[10px] font-black uppercase mt-2 tracking-widest">RCA Modern</span>
-                    </div>
-                    <div class="roller-item text-cyan-400">
-                        <i data-lucide="plane" size="60" stroke-width="2.5"></i>
-                        <span class="text-[10px] font-black uppercase mt-2 tracking-widest">Travel / Troller</span>
-                    </div>
-                </div>
+        <div class="flex flex-col items-center gap-4 mb-8">
+            <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-700 shadow-xl">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar">
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
-                    <i data-lucide="plane-takeoff" class="text-cyan-400 mb-4 mx-auto" size="32"></i>
-                    <span class="block font-black text-sm tracking-widest">TRAVEL</span>
-                </a>
-                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
-                    <i data-lucide="home" class="text-yellow-400 mb-4 mx-auto" size="32"></i>
-                    <span class="block font-black text-sm tracking-widest">LOCUINȚĂ</span>
-                </a>
-                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
-                    <i data-lucide="car-front" class="text-purple-400 mb-4 mx-auto" size="32"></i>
-                    <span class="block font-black text-sm tracking-widest">RCA</span>
-                </a>
-                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
-                    <i data-lucide="heart-pulse" class="text-pink-500 mb-4 mx-auto" size="32"></i>
-                    <span class="block font-black text-sm tracking-widest">VIAȚĂ</span>
-                </a>
+            <div class="glass-card px-6 py-3 rounded-2xl text-sm shadow-2xl">
+                Salut! Unde te aventurezi astăzi?
             </div>
         </div>
-    </section>
 
-    <footer class="pt-24 pb-12 border-t border-white/5 bg-[#030303]">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 text-slate-400">
-            <div class="space-y-10">
-                <div class="flex flex-col gap-3 text-sm">
-                    <a href="https://anpc.ro" class="hover:text-cyan-400">ANPC</a>
-                    <a href="https://asfromania.ro/" class="hover:text-cyan-400">ASF România</a>
-                    <a href="https://www.sal-fin.ro/" class="hover:text-cyan-400">SAL-Fin</a>
-                </div>
-                <div class="flex gap-6">
-                    <i data-lucide="facebook"></i>
-                    <i data-lucide="instagram"></i>
-                    <span class="font-black italic text-xs">TIKTOK</span>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-8 text-[11px] font-bold uppercase tracking-wider">
-                <div class="flex flex-col gap-3">
-                    <a href="#" class="hover:text-white">Cookies</a>
-                    <a href="#" class="hover:text-white">Termeni</a>
-                    <a href="#" class="hover:text-white">Confidențialitate</a>
-                </div>
-                <div class="flex flex-col gap-3">
-                    <p class="text-cyan-400">office@safego.ro</p>
-                    <p>0723697805</p>
-                </div>
+        <div class="flex gap-3 mb-6">
+            <button class="flex-1 btn-cyan h-14 rounded-2xl flex items-center justify-center gap-2 font-bold text-xs">
+                <i data-lucide="plane" size="18"></i> CĂLĂTORESC
+            </button>
+            <button class="flex-1 btn-yellow h-14 rounded-2xl flex items-center justify-center gap-2 font-bold text-xs">
+                <i data-lucide="home" size="18"></i> LOCUIESC
+            </button>
+        </div>
+
+        <div class="relative mb-16">
+            <input type="text" placeholder="Scanează..." class="w-full bg-[#2a2a2d] border-none rounded-2xl py-4 px-6 text-sm focus:ring-1 focus:ring-cyan-500">
+            <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+                <i data-lucide="camera" size="20"></i>
             </div>
         </div>
+
+        <section class="mb-12">
+            <h2 class="text-sm font-bold mb-4 tracking-widest">EROUL ZILEI</h2>
+            <div class="relative rounded-3xl overflow-hidden h-56 group cursor-pointer shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1551632432-c735e7a030bc?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent">
+                    <p class="text-xl font-bold">VIAȚĂ & SĂNĂTATE</p>
+                    <p class="text-[10px] text-gray-300 mb-4">Protecțion pour planhias tale magri.</p>
+                    <button class="btn-cyan w-fit px-6 py-2 rounded-full text-[10px] font-bold">AFLĂ MAI MULT</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-sm font-bold tracking-widest">RECENZII VIDEO</h2>
+            </div>
+            <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+                <div class="min-w-[140px] aspect-[9/12] glass-card rounded-2xl relative overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=60&w=300" class="w-full h-full object-cover opacity-60">
+                    <div class="absolute bottom-2 left-2 text-[8px] font-bold">AM FOST LA SKI I...</div>
+                </div>
+                <div class="min-w-[140px] aspect-[9/12] glass-card rounded-2xl relative overflow-hidden flex-shrink-0 border-cyan-500/30">
+                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=60&w=300" class="w-full h-full object-cover opacity-60">
+                    <div class="absolute bottom-2 left-2 text-[8px] font-bold uppercase">Laptopul meu e salvat!</div>
+                </div>
+                <div class="min-w-[140px] aspect-[9/12] glass-card rounded-2xl relative overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=60&w=300" class="w-full h-full object-cover opacity-60">
+                    <div class="absolute bottom-2 left-2 text-[8px] font-bold uppercase">Vacanța Perfectă</div>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+                <span class="text-[10px] text-gray-500 uppercase tracking-tighter">VEZI CUM AM APUAT!<br><span class="text-white">TOATE RECUZZIE</span></span>
+                <button class="btn-yellow px-6 py-2 rounded-full text-[10px] font-bold">TOATE REC22IOLE</button>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-sm font-bold mb-4 tracking-widest">PRODUTES ADIȚIONALE</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="glass-card p-6 rounded-3xl text-center flex flex-col items-center">
+                    <i data-lucide="car" class="text-gray-400 mb-3" size="32"></i>
+                    <p class="text-[10px] font-bold">RCA & CASCO</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl text-center flex flex-col items-center">
+                    <i data-lucide="dog" class="text-gray-400 mb-3" size="32"></i>
+                    <p class="text-[10px] font-bold leading-tight">ANIMALE DE<br>COMPANIE</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#121214] py-10 px-6 border-t border-white/5 text-[10px] text-gray-500 text-center">
+        <div class="flex justify-center gap-8 mb-6 uppercase tracking-widest">
+            <a href="#">Despre Noi</a>
+            <a href="#">Contact</a>
+            <a href="#">Întrerabă Frecventate</a>
+        </div>
+        <div class="flex justify-center gap-6 mb-8 text-white">
+            <i data-lucide="instagram" size="18"></i>
+            <i data-lucide="facebook" size="18"></i>
+            <i data-lucide="twitter" size="18"></i>
+        </div>
+        <p>© 2026 SAFEGO.RO | PROTECȚIE SMART</p>
     </footer>
 
     <script>
