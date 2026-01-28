@@ -3,149 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>safego.ro - Viitorul Asigurărilor</title>
+    <title>morningside | safego.ro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Animația de fascicul (Beam) pentru butoane */
-        @keyframes beam {
-            0% { transform: translateX(-100%) skewX(-15deg); }
-            100% { transform: translateX(250%) skewX(-15deg); }
+        /* Culori Personalizate din ZIP PROTECT */
+        :root {
+            --bg-dark: #0a0a0c;
+            --accent-cyan: #00d2ff;
+            --accent-yellow: #facc15;
+            --text-gray: #94a3b8;
         }
-        .beam-effect { position: relative; overflow: hidden; }
-        .beam-effect:hover::after {
+
+        body { background-color: var(--bg-dark); }
+
+        /* Animația de Fascicul (Beam) */
+        @keyframes beam {
+            0% { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(250%) skewX(-15deg); opacity: 0; }
+        }
+        .btn-beam { position: relative; overflow: hidden; }
+        .btn-beam:hover::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 30%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-            animation: beam 0.6s ease-out;
+            top: 0; left: 0; width: 40%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: beam 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Animația de rolă (Rolling symbols) */
-        @keyframes roll {
-            0% { transform: translateY(0); }
-            20% { transform: translateY(-120px); }
-            40% { transform: translateY(-240px); }
-            60% { transform: translateY(-360px); }
-            80% { transform: translateY(-480px); }
-            100% { transform: translateY(0); }
+        /* Animația Rolei (Video Style) */
+        @keyframes roll-down {
+            0% { transform: translateY(-400px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(400px); opacity: 0; }
         }
-        .roller-container { height: 120px; overflow: hidden; }
-        .roller-list { animation: roll 10s infinite cubic-bezier(0.8, 0, 0.2, 1); }
-        .roller-item { height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .rolling-icon {
+            animation: roll-down 4s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
-<body class="bg-[#0f172a] text-slate-200 font-sans">
+<body class="text-slate-200 antialiased selection:bg-cyan-500/30">
 
-    <nav class="fixed top-0 w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/40 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-tr from-cyan-400 to-blue-600 rounded-lg shadow-lg"></div>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="shield-check" class="text-white" size="24"></i>
+                </div>
                 <span class="text-2xl font-black tracking-tighter text-white">safego.ro</span>
             </div>
-            <div class="flex gap-4">
-                <button class="px-6 py-2 text-sm font-bold text-white hover:text-cyan-400 transition-colors beam-effect">Acasa</button>
-                <button class="px-6 py-2 bg-cyan-500 text-slate-900 rounded-full text-sm font-black beam-effect shadow-lg shadow-cyan-500/20">Autentificare</button>
+            
+            <div class="flex gap-3">
+                <button class="px-5 py-2 text-sm font-bold btn-beam bg-white/5 rounded-full border border-white/10 hover:border-white/20 transition-all">Acasa</button>
+                <button class="px-5 py-2 text-sm font-bold btn-beam bg-cyan-500 text-black rounded-full shadow-lg shadow-cyan-500/20">Autentificare</button>
             </div>
         </div>
     </nav>
 
-    <section class="pt-40 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">
-                A new era of <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">
-                    personal finance
-                </span>
+    <section class="pt-40 pb-20 px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h1 class="text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter">
+                morningside<span class="text-cyan-400">.</span>
             </h1>
+            <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto">Asigurări inteligente pentru generația digitală. Rapid, simplu, ultra-atractiv.</p>
 
-            <div class="roller-container mb-12">
-                <div class="roller-list">
-                    <div class="roller-item text-pink-500">
-                        <i data-lucide="heart" size="56"></i>
-                        <span class="text-xs font-bold mt-3 uppercase tracking-widest text-pink-400">Asigurare de Viață</span>
+            <div class="relative h-64 flex justify-center items-center mb-16">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent"></div>
+                <div class="flex gap-12">
+                    <div class="flex flex-col items-center">
+                        <div class="rolling-icon text-pink-500"><i data-lucide="heart" size="64"></i></div>
+                        <span class="text-[10px] uppercase tracking-widest font-black mt-4 text-pink-500/50">Viață</span>
                     </div>
-                    <div class="roller-item text-yellow-400">
-                        <i data-lucide="home" size="56"></i>
-                        <span class="text-xs font-bold mt-3 uppercase tracking-widest text-yellow-300">Asigurare Locuință</span>
+                    <div class="flex flex-col items-center">
+                        <div class="rolling-icon text-yellow-400" style="animation-delay: 1s;"><i data-lucide="home" size="64"></i></div>
+                        <span class="text-[10px] uppercase tracking-widest font-black mt-4 text-yellow-400/50">Locuință</span>
                     </div>
-                    <div class="roller-item text-purple-400">
-                        <i data-lucide="car" size="56"></i>
-                        <span class="text-xs font-bold mt-3 uppercase tracking-widest text-purple-300">Asigurare RCA</span>
+                    <div class="flex flex-col items-center">
+                        <div class="rolling-icon text-purple-400" style="animation-delay: 2s;"><i data-lucide="car" size="64"></i></div>
+                        <span class="text-[10px] uppercase tracking-widest font-black mt-4 text-purple-400/50">RCA</span>
                     </div>
-                    <div class="roller-item text-cyan-400">
-                        <i data-lucide="plane" size="56"></i>
-                        <span class="text-xs font-bold mt-3 uppercase tracking-widest text-cyan-300">Asigurare Travel</span>
-                    </div>
-                    <div class="roller-item text-pink-500">
-                        <i data-lucide="heart" size="56"></i>
-                        <span class="text-xs font-bold mt-3 uppercase tracking-widest text-pink-400">Asigurare de Viață</span>
+                    <div class="flex flex-col items-center">
+                        <div class="rolling-icon text-cyan-400" style="animation-delay: 3s;"><i data-lucide="plane" size="64"></i></div>
+                        <span class="text-[10px] uppercase tracking-widest font-black mt-4 text-cyan-400/50">Travel</span>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <a href="https://wa.me/0723697805" target="_blank" class="flex items-center justify-between p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-cyan-400 transition-all group beam-effect">
-                    <div class="flex items-center gap-4 text-white font-bold"><i data-lucide="plane" class="text-cyan-400"></i> Travel</div>
-                    <i data-lucide="arrow-right" class="text-cyan-400 opacity-0 group-hover:opacity-100 transition-transform group-hover:translate-x-1"></i>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <a href="https://wa.me/0723697805" target="_blank" class="glass-card p-6 rounded-3xl hover:border-cyan-400/50 transition-all group btn-beam">
+                    <i data-lucide="plane-takeoff" class="text-cyan-400 mb-3 mx-auto" size="32"></i>
+                    <div class="font-black text-white">TRAVEL</div>
                 </a>
-                <a href="https://wa.me/0723697805" target="_blank" class="flex items-center justify-between p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-yellow-400 transition-all group beam-effect">
-                    <div class="flex items-center gap-4 text-white font-bold"><i data-lucide="home" class="text-yellow-400"></i> Locuinta</div>
-                    <i data-lucide="arrow-right" class="text-yellow-400 opacity-0 group-hover:opacity-100 transition-transform group-hover:translate-x-1"></i>
+                <a href="https://wa.me/0723697805" target="_blank" class="glass-card p-6 rounded-3xl hover:border-yellow-400/50 transition-all group btn-beam">
+                    <i data-lucide="home" class="text-yellow-400 mb-3 mx-auto" size="32"></i>
+                    <div class="font-black text-white">LOCUINȚĂ</div>
                 </a>
-                <a href="https://wa.me/0723697805" target="_blank" class="flex items-center justify-between p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-purple-400 transition-all group beam-effect">
-                    <div class="flex items-center gap-4 text-white font-bold"><i data-lucide="car" class="text-purple-400"></i> RCA</div>
-                    <i data-lucide="arrow-right" class="text-purple-400 opacity-0 group-hover:opacity-100 transition-transform group-hover:translate-x-1"></i>
+                <a href="https://wa.me/0723697805" target="_blank" class="glass-card p-6 rounded-3xl hover:border-purple-400/50 transition-all group btn-beam">
+                    <i data-lucide="car-front" class="text-purple-400 mb-3 mx-auto" size="32"></i>
+                    <div class="font-black text-white">RCA</div>
                 </a>
-                <a href="https://wa.me/0723697805" target="_blank" class="flex items-center justify-between p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-pink-400 transition-all group beam-effect">
-                    <div class="flex items-center gap-4 text-white font-bold"><i data-lucide="heart" class="text-pink-400"></i> Viata</div>
-                    <i data-lucide="arrow-right" class="text-pink-400 opacity-0 group-hover:opacity-100 transition-transform group-hover:translate-x-1"></i>
+                <a href="https://wa.me/0723697805" target="_blank" class="glass-card p-6 rounded-3xl hover:border-pink-400/50 transition-all group btn-beam">
+                    <i data-lucide="heart-pulse" class="text-pink-400 mb-3 mx-auto" size="32"></i>
+                    <div class="font-black text-white">VIAȚĂ</div>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black py-16 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-8">
-                <div class="flex flex-col gap-2 text-sm text-slate-400">
-                    <a href="https://anpc.ro" class="hover:text-white transition-colors">ANPC</a>
-                    <a href="https://asfromania.ro/" class="hover:text-white transition-colors">ASF România</a>
-                    <a href="#" class="hover:text-white transition-colors">Autoritatea de Supraveghere Financiară - SAL-Fin</a>
-                </div>
-                <div class="flex gap-6 text-slate-400">
-                    <i data-lucide="facebook" class="hover:text-blue-500 cursor-pointer"></i>
-                    <i data-lucide="instagram" class="hover:text-pink-500 cursor-pointer"></i>
-                    <span class="font-bold hover:text-white cursor-pointer text-sm">TikTok</span>
-                    <i data-lucide="phone" class="hover:text-green-500 cursor-pointer"></i>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-500">
-                <div class="flex flex-col gap-2">
-                    <a href="#" class="hover:text-cyan-400">Politica de cookies</a>
-                    <a href="#" class="hover:text-cyan-400">Despre noi</a>
-                    <a href="#" class="hover:text-cyan-400">Termeni și condiții</a>
-                    <a href="#" class="hover:text-cyan-400">Politica de confidențialitate</a>
-                    <a href="#" class="hover:text-cyan-400">GDPR</a>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <a href="#" class="hover:text-cyan-400">Informare precontractuală</a>
-                    <a href="#" class="hover:text-cyan-400">Asigurați cu risc ridicat</a>
-                    <a href="#" class="hover:text-cyan-400">Verificare RCA</a>
-                    <a href="#" class="hover:text-cyan-400">Constatare amiabilă</a>
-                    <div class="mt-4 text-slate-300 font-medium">
-                        <p>office@safego.ro</p>
-                        <p>tel. 0723697805</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Activează iconițele automate
-        lucide.createIcons();
-    </script>
-</body>
-</html>
- 
+    <section class="py-24 bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto px-6">
