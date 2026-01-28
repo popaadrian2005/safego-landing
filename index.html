@@ -3,18 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>safego.ro | Asigurări Digitale</title>
+    <title>safego.ro | Viitorul Asigurărilor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root {
-            --accent-blue: #00d2ff;
-            --accent-yellow: #facc15;
-        }
-
         body { background-color: #050505; color: #e2e8f0; font-family: 'Inter', sans-serif; }
-
-        /* Animație Fascicul (Beam) pentru butoane */
         @keyframes beam {
             0% { transform: translateX(-110%) skewX(-15deg); opacity: 0; }
             50% { opacity: 0.6; }
@@ -22,14 +15,10 @@
         }
         .btn-beam { position: relative; overflow: hidden; }
         .btn-beam:hover::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 30%; height: 100%;
+            content: ''; position: absolute; top: 0; left: 0; width: 30%; height: 100%;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
             animation: beam 0.8s ease-out;
         }
-
-        /* Animația Rolei (Inspirată din video-ul tău) */
         @keyframes roll-custom {
             0% { transform: translateY(0); opacity: 0; }
             5% { opacity: 1; }
@@ -39,10 +28,9 @@
             80% { transform: translateY(-480px); opacity: 1; }
             100% { transform: translateY(-480px); opacity: 0; }
         }
-        .roller-box { height: 120px; overflow: hidden; position: relative; }
+        .roller-box { height: 120px; overflow: hidden; }
         .roller-track { animation: roll-custom 10s infinite cubic-bezier(0.85, 0, 0.15, 1); }
-        .roller-item { height: 120px; display: flex; flex-direction: column; items: center; justify-content: center; }
-
+        .roller-item { height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px); }
     </style>
 </head>
@@ -54,7 +42,6 @@
                 <img src="Logo safego.jpg" alt="safego.ro" class="h-12 w-12 rounded-lg object-cover shadow-lg shadow-cyan-500/20">
                 <span class="text-2xl font-black tracking-tighter text-white uppercase">safego.ro</span>
             </div>
-            
             <div class="flex gap-4">
                 <button class="px-6 py-2 text-sm font-bold btn-beam hover:text-cyan-400 transition-colors">Acasa</button>
                 <button class="px-6 py-2 bg-cyan-500 text-black rounded-full text-sm font-black btn-beam shadow-lg shadow-cyan-500/30">Autentificare</button>
@@ -65,7 +52,7 @@
     <section class="pt-48 pb-24 px-6">
         <div class="max-w-5xl mx-auto text-center">
             <h1 class="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-none">
-                PROTECȚIE <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-cyan-400">ULTRA RAPIDĂ</span>
+                PROTECȚIE <br> <span class="text-cyan-400">ULTRA RAPIDĂ</span>
             </h1>
 
             <div class="roller-box mb-16">
@@ -86,27 +73,23 @@
                         <i data-lucide="plane" size="60" stroke-width="2.5"></i>
                         <span class="text-[10px] font-black uppercase mt-2 tracking-widest">Travel / Troller</span>
                     </div>
-                    <div class="roller-item text-pink-500">
-                        <i data-lucide="heart" size="60" stroke-width="2.5"></i>
-                        <span class="text-[10px] font-black uppercase mt-2 tracking-widest">Viață & Sănătate</span>
-                    </div>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                <a href="https://wa.me/0723697805" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
+                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
                     <i data-lucide="plane-takeoff" class="text-cyan-400 mb-4 mx-auto" size="32"></i>
                     <span class="block font-black text-sm tracking-widest">TRAVEL</span>
                 </a>
-                <a href="https://wa.me/0723697805" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
+                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
                     <i data-lucide="home" class="text-yellow-400 mb-4 mx-auto" size="32"></i>
                     <span class="block font-black text-sm tracking-widest">LOCUINȚĂ</span>
                 </a>
-                <a href="https://wa.me/0723697805" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
+                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
                     <i data-lucide="car-front" class="text-purple-400 mb-4 mx-auto" size="32"></i>
                     <span class="block font-black text-sm tracking-widest">RCA</span>
                 </a>
-                <a href="https://wa.me/0723697805" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
+                <a href="https://wa.me/0723697805" target="_blank" class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all group btn-beam">
                     <i data-lucide="heart-pulse" class="text-pink-500 mb-4 mx-auto" size="32"></i>
                     <span class="block font-black text-sm tracking-widest">VIAȚĂ</span>
                 </a>
@@ -114,71 +97,31 @@
         </div>
     </section>
 
-    <section class="py-24 bg-black">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-xl font-black mb-12 flex items-center gap-3 tracking-widest uppercase">
-                <span class="w-8 h-1 bg-cyan-500"></span> Recenzii Video
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="aspect-[9/16] glass rounded-3xl flex items-center justify-center relative overflow-hidden">
-                    <i data-lucide="play-circle" class="text-white/10" size="48"></i>
-                    <div class="absolute bottom-4 left-4 text-[10px] font-bold text-white/30">USER REVIU #1</div>
-                </div>
-                <div class="aspect-[9/16] glass rounded-3xl flex items-center justify-center relative overflow-hidden">
-                    <i data-lucide="play-circle" class="text-white/10" size="48"></i>
-                    <div class="absolute bottom-4 left-4 text-[10px] font-bold text-white/30">USER REVIU #2</div>
-                </div>
-                <div class="aspect-[9/16] glass rounded-3xl flex items-center justify-center relative overflow-hidden">
-                    <i data-lucide="play-circle" class="text-white/10" size="48"></i>
-                    <div class="absolute bottom-4 left-4 text-[10px] font-bold text-white/30">USER REVIU #3</div>
-                </div>
-                <div class="aspect-[9/16] glass rounded-3xl flex items-center justify-center relative overflow-hidden">
-                    <i data-lucide="play-circle" class="text-white/10" size="48"></i>
-                    <div class="absolute bottom-4 left-4 text-[10px] font-bold text-white/30">USER REVIU #4</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer class="pt-24 pb-12 border-t border-white/5 bg-[#030303]">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
-            
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 text-slate-400">
             <div class="space-y-10">
-                <div class="flex flex-col gap-3 text-sm font-semibold text-slate-400">
-                    <a href="https://anpc.ro" class="hover:text-cyan-400 transition-colors">ANPC – Prot. Consumatorilor</a>
-                    <a href="https://asfromania.ro/" class="hover:text-cyan-400 transition-colors">ASF România (asfromania.ro)</a>
-                    <a href="https://www.sal-fin.ro/" class="hover:text-cyan-400 transition-colors">ASF - SAL-Fin</a>
+                <div class="flex flex-col gap-3 text-sm">
+                    <a href="https://anpc.ro" class="hover:text-cyan-400">ANPC</a>
+                    <a href="https://asfromania.ro/" class="hover:text-cyan-400">ASF România</a>
+                    <a href="https://www.sal-fin.ro/" class="hover:text-cyan-400">SAL-Fin</a>
                 </div>
-                <div class="flex gap-6 items-center">
-                    <a href="#" class="text-slate-400 hover:text-blue-500 transition-all"><i data-lucide="facebook"></i></a>
-                    <a href="#" class="text-slate-400 hover:text-pink-500 transition-all"><i data-lucide="instagram"></i></a>
-                    <a href="#" class="text-slate-400 hover:text-white font-black text-xs italic tracking-tighter">TIKTOK</a>
-                    <a href="https://wa.me/0723697805" class="text-slate-400 hover:text-green-500 transition-all"><i data-lucide="message-circle"></i></a>
+                <div class="flex gap-6">
+                    <i data-lucide="facebook"></i>
+                    <i data-lucide="instagram"></i>
+                    <span class="font-black italic text-xs">TIKTOK</span>
                 </div>
             </div>
-
-            <div class="grid grid-cols-2 gap-8 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            <div class="grid grid-cols-2 gap-8 text-[11px] font-bold uppercase tracking-wider">
                 <div class="flex flex-col gap-3">
-                    <a href="#" class="hover:text-white">Politica de cookies</a>
-                    <a href="#" class="hover:text-white">Despre noi</a>
-                    <a href="#" class="hover:text-white">Termeni și condiții</a>
+                    <a href="#" class="hover:text-white">Cookies</a>
+                    <a href="#" class="hover:text-white">Termeni</a>
                     <a href="#" class="hover:text-white">Confidențialitate</a>
-                    <a href="#" class="hover:text-white">Date Personale</a>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <a href="#" class="hover:text-white">Informare precontractuală</a>
-                    <a href="#" class="hover:text-white">Asigurați risc ridicat</a>
-                    <a href="#" class="hover:text-white">Verificare RCA</a>
-                    <a href="#" class="hover:text-white">Constatare amiabilă</a>
-                    <div class="mt-4 pt-4 border-t border-white/5 text-slate-300">
-                        <p class="text-cyan-400 italic mb-1">office@safego.ro</p>
-                        <p>tel. 0723697805</p>
-                    </div>
+                    <p class="text-cyan-400">office@safego.ro</p>
+                    <p>0723697805</p>
                 </div>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-center text-[9px] text-slate-700 tracking-[0.3em]">
-            © 2026 SAFEGO.RO | ALL RIGHTS RESERVED
         </div>
     </footer>
 
